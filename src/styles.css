@@ -29,3 +29,6 @@ button {
 .white-list-item {
   @apply w-full rounded bg-white px-3 py-1;
 }
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }

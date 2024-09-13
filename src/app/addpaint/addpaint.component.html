@@ -1,1 +1,100 @@
-<p>addpaint works!</p>
+<div class="flex flex-col gap-4">
+  <a class="flex items-center gap-2" routerLink="../">
+    <ng-icon name="remixArrowLeftDoubleLine"></ng-icon>
+    Back
+  </a>
+
+  <div class="flex justify-between">
+    <div class="font-bold">Paints</div>
+    <button (click)="showNewPaint = true">
+      <span>Add Paint</span>
+      <ng-icon name="remixAddCircleFill"></ng-icon>
+    </button>
+  </div>
+
+  <!--  <div class="flex flex-col">-->
+  <div *ngIf="showNewPaint">
+
+    <div class="grid lg:flex lg:place-items-center lg:gap-4    ">
+      <!--      <label class="text-sm">Brand</label>-->
+      <div class="flex flex-col place-items-center">
+        <label class="text-sm">Brand</label>
+        <mat-form-field>
+          <mat-select [(value)]="selectedBrand">
+            <mat-option *ngFor="let brand of brand" [value]="brand">
+              {{ brand }} Brand
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>
+      <div class="flex flex-col place-items-center">
+        <label class="text-sm">Paint Range</label>
+        <mat-form-field>
+          <mat-select [(value)]="selectedRange">
+            <mat-option *ngFor="let range of range" [value]="range">
+              {{ range }}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>
+      <div class="flex flex-col place-items-center">
+        <label class="text-sm">Color Name</label>
+        <mat-form-field>
+          <mat-select [(value)]="selectedName">
+            <mat-option *ngFor="let name of name" [value]="name">
+              {{ name }}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>
+      <div class="flex flex-col place-items-center">
+        <label class="text-sm">Color Hex</label>
+        <mat-form-field>
+          <mat-select [(value)]="selectedHex">
+            <mat-option *ngFor="let hex   of hex" [value]="hex">
+              {{ hex }}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>
+      <!--      <input type="text"  />-->
+      <!--      <input type="text" [(ngModel)]="newCategory" />-->
+<div class="flex flex-col place-items-center">
+      <button >
+        <!--      <button (click)="addCategory()">-->
+        <ng-icon style="font-size: 20px;" name="remixAddCircleFill"></ng-icon>
+        <span>Save</span>
+      </button>
+</div>
+    </div>
+  </div>
+
+  <div class="flex flex-col gap-2">
+    <ng-container *ngIf="brand.length; else noPaints">
+      <div class="flex items-center gap-4">
+        <!--        <div class="white-list-item" *ngFor="let b of brand">{{ b }}</div>-->
+        <!--        <div class="white-list-item" *ngFor="let r of range">{{ r }}</div>-->
+        <!--        <div class="white-list-item" *ngFor="let n of name"> {{ n }}</div>-->
+        <!--        <div class="white-list-item" *ngFor="let h of hex">{{ h }}</div>-->
+
+        <!--      </div>-->
+        <!--      <div class="flex flex-col items-center">-->
+        <!--        <button class="flex     w-40 rounded bg-white px-3 py-1 items-center gap-2">-->
+        <!--          <ng-icon name="remixAddCircleFill"></ng-icon>-->
+        <!--          Save Paint-->
+        <!--        </button>-->
+        <!--      </div>-->
+        <!--      <div>-->
+
+      </div>
+    </ng-container>
+    <ng-template #noPaints>
+      <div class="text-center">
+        You have no paints
+      </div>
+    </ng-template>
+  </div>
+
+
+  <!--  <p>Selected: {{ selectedValue }}</p>-->
+</div>
