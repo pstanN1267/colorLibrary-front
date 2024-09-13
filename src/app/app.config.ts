@@ -1,13 +1,13 @@
 import { ApplicationConfig } from '@angular/core';
 import { provideRouter } from '@angular/router';
 
-
 import { routes } from './app.routes';
 import { provideIcons, provideNgIconsConfig } from '@ng-icons/core';
 import {
   remixAddCircleFill,
   remixArrowLeftDoubleLine,
-  remixArrowLeftRightLine, remixCloseCircleLine,
+  remixArrowLeftRightLine,
+  remixCloseCircleLine,
   remixPaintBrushFill,
   remixPaintBrushLine,
   remixPaintFill,
@@ -40,6 +40,7 @@ export const appConfig: ApplicationConfig = {
       remixArrowLeftDoubleLine,
       remixCloseCircleLine,
       remixAddCircleFill,
-    }), provideAnimationsAsync(),
+    }),
+    provideAnimationsAsync(),
   ],
 };
