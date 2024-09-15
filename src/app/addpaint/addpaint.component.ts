@@ -4,7 +4,7 @@ import { NgIcon } from '@ng-icons/core';
 import { NgForOf, NgIf } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { MatFormField } from '@angular/material/form-field';
-import { MatOption, MatSelect } from '@angular/material/select';
+import { MatOptgroup, MatOption, MatSelect } from '@angular/material/select';
 
 @Component({
   selector: 'app-addpaint',
@@ -18,11 +18,13 @@ import { MatOption, MatSelect } from '@angular/material/select';
     MatFormField,
     MatSelect,
     MatOption,
+    MatOptgroup,
   ],
   templateUrl: './addpaint.component.html',
   styleUrl: './addpaint.component.css',
 })
 export class AddpaintComponent {
+  paint:string[] = [];
   selectedBrand = '';
   brand = ['Citadel', 'Vallejo'];
 
@@ -42,4 +44,14 @@ export class AddpaintComponent {
     { value: 'option2', label: 'Option 2' },
     { value: 'option3', label: 'Option 3' },
   ];
+
+  addPaint() {
+    this.paint.push(this.selectedBrand, this.selectedRange, this.selectedName, this.selectedHex);
+    this.selectedBrand = '';
+    this.selectedRange = '';
+    this.selectedName = '';
+    this.selectedHex = '';
+    this.showNewPaint = false;
+
+  }
 }
