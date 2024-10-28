@@ -12,119 +12,32 @@
     </button>
   </div>
 
-  <!--  <div class="flex flex-col">-->
-  <!--  <div *ngIf="showNewPaint">-->
-  <!--    <ng-container>-->
-  <!--    <div class="grid lg:flex lg:place-items-center lg:gap-4">-->
-  <!--      <div class="flex flex-col place-items-center">-->
-  <!--        <label class="text-sm">Brand</label>-->
-  <!--        <mat-form-field>-->
-  <!--          <mat-select [(value)]="selectedBrand">-->
-  <!--            <mat-option *ngFor="let brand of brand" [value]="brand">-->
-  <!--              {{ brand }} Brand-->
-  <!--            </mat-option>-->
-  <!--          </mat-select>-->
-  <!--        </mat-form-field>-->
-  <!--      </div>-->
-  <!--      <div class="flex flex-col place-items-center">-->
-  <!--        <label class="text-sm">Paint Range</label>-->
-  <!--        <mat-form-field>-->
-  <!--          <mat-select [(value)]="selectedRange">-->
-  <!--            <mat-option *ngFor="let range of range" [value]="range">-->
-  <!--              {{ range }}-->
-  <!--            </mat-option>-->
-  <!--          </mat-select>-->
-  <!--        </mat-form-field>-->
-  <!--      </div>-->
-  <!--      <div class="flex flex-col place-items-center">-->
-  <!--        <label class="text-sm">Color Name</label>-->
-  <!--        <mat-form-field>-->
-  <!--          <mat-select [(value)]="selectedName">-->
-  <!--            <mat-option *ngFor="let name of name" [value]="name">-->
-  <!--              {{ name }}-->
-  <!--            </mat-option>-->
-  <!--          </mat-select>-->
-  <!--        </mat-form-field>-->
-  <!--      </div>-->
-  <!--      <div class="flex flex-col place-items-center">-->
-  <!--        <label class="text-sm">Color Hex</label>-->
-  <!--        <mat-form-field>-->
-  <!--          <mat-select [(value)]="selectedHex">-->
-  <!--            <mat-option *ngFor="let hex of hex" [value]="hex">-->
-  <!--              {{ hex }}-->
-  <!--            </mat-option>-->
-  <!--          </mat-select>-->
-  <!--        </mat-form-field>-->
-  <!--      </div>-->
-  <!--      <div class="flex flex-col place-items-center">-->
-  <!--        <button [(ngModel)]="paint"-->
-  <!--          (click)="addPaint()">-->
-  <!--          <ng-icon style="font-size: 20px" name="remixAddCircleFill"></ng-icon>-->
-  <!--          <span>Save</span>-->
-  <!--        </button>-->
-  <!--      </div>-->
-  <!--    </div>-->
-  <!--    </ng-container>-->
-  <!--  </div>-->
-
   <ng-container class="flex flex-col gap-2" *ngIf="showNewPaint; else noPaints">
 
-    <div class="grid lg:flex lg:place-items-center lg:gap-4">
-      <div class="flex flex-col place-items-center">
-        <mat-form-field>
-          <mat-select [(value)]="selectedBrand">
-            <mat-optgroup label="Brand:">
-              <mat-option *ngFor="let brand of brand" [value]="brand">
-                {{ brand }}
-              </mat-option>
-            </mat-optgroup>
-          </mat-select>
-        </mat-form-field>
-      </div>
+    <label class="text-sm ">Brand</label>
+    <div class="flex  gap-4">
+      <input type="text">
+    </div>
 
-      <div class="flex flex-col place-items-center">
-        <mat-form-field>
-          <mat-select [(value)]="selectedRange">
-            <mat-optgroup label="Paint Range:">
-              <mat-option *ngFor="let range of range" [value]="range">
-                {{ range }}
-              </mat-option>
-            </mat-optgroup>
-          </mat-select>
-        </mat-form-field>
-      </div>
+    <label class="text-sm">Paint Range</label>
+    <div class="flex  gap-4">
+      <input type="text">
+    </div>
+    <label class="text-sm">Paint Name</label>
+    <div class="flex  gap-4">
+      <input type="text">
+    </div>
+    <label class="text-sm">Paint Hex</label>
+    <div class="flex  gap-4">
+      <input type="text">
+    </div>
 
-      <div class="flex flex-col place-items-center">
-        <mat-form-field>
-          <mat-select [(value)]="selectedName">
-            <mat-optgroup label="Paint Name:">
-              <mat-option *ngFor="let name of name" [value]="name">
-                {{ name }}
-              </mat-option>
-            </mat-optgroup>
-          </mat-select>
-        </mat-form-field>
-      </div>
 
-      <div class="flex flex-col place-items-center">
-        <mat-form-field>
-          <mat-select [(value)]="selectedHex">
-            <mat-optgroup label="Color Hex:">
-              <mat-option *ngFor="let hex of hex" [value]="hex">
-                {{ hex }}
-              </mat-option>
-            </mat-optgroup>
-          </mat-select>
-        </mat-form-field>
-      </div>
-
-      <div class="flex flex-col place-items-center">
-        <button [(ngModel)]="paint"
-                (click)="addPaint()">
-          <ng-icon style="font-size: 20px" name="remixAddCircleFill"></ng-icon>
-          <span>Save</span>
-        </button>
-      </div>
+    <div class="flex justify-center">
+      <button (click)="showNewPaint = true">
+        <span>Save Paint</span>
+        <ng-icon name="remixAddCircleFill"></ng-icon>
+      </button>
     </div>
   </ng-container>
 
