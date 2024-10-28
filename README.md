@@ -1,27 +1,26 @@
-# ColorLibraryFront
+# Frontend aplikacji ColorLibrary
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 17.1.4.
+## Technologie
 
-## Development server
+- Html
+- Css
+- TypeScript
+- Angular 17.1.4
+  - Prettier
+  - Tailwind
+  
+ ## Wymagania
+ - Angular 17.1.4 lub nowszy 
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
 
-## Code scaffolding
+    Aby uruchomić aplikację należy sklonować repozytorium [https://github.com/pstanN1267/ColorLibrary](https://github.com/pstanN1267/colorLibrary-front), aplikacja znajduje się pod adresem: http://localhost:4200/
+   
+## Działanie
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
-
-## Build
-
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
-
-## Running unit tests
-
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+- Kliknięcie w przycisk **Add Paints** przenosi nas do strony gdzie moglibyśmy dodawać farbki
+  ![image](https://github.com/user-attachments/assets/281fedb4-0876-4fc0-8b85-8fdc476c0778)
+  - W lewym górnym rogu mamy dwa przyciski
+    
+    ![image](https://github.com/user-attachments/assets/e120901c-30ff-469f-a53e-26cd28b933e1)
+    
+   Przenoszą nas do strony startowej
