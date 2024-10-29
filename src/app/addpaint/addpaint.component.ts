@@ -24,33 +24,23 @@ import { MatOptgroup, MatOption, MatSelect } from '@angular/material/select';
   styleUrl: './addpaint.component.css',
 })
 export class AddpaintComponent {
-  paint:string[] = [];
-  selectedBrand = '';
-  brand = ['Citadel', 'Vallejo'];
-
-  selectedRange = '';
-  range = ['Base', 'Dry', 'Layer'];
-
-  selectedName = '';
-  name = ['Abaddon Black', 'Caliban Green'];
-  selectedHex = '';
-  hex = ['#231F20', '#00401F'];
-
   showNewPaint = false;
 
-  selectedValue: string = '';
-  options = [
-    { value: 'Citadel', label: 'Citadel' },
-    { value: 'option2', label: 'Option 2' },
-    { value: 'option3', label: 'Option 3' },
-  ];
+  brand = '';
+  range = '';
+  name = '';
+  hex = '';
+
+  userPaints: string[][] = [];
+
 
   addPaint() {
-    this.paint.push(this.selectedBrand, this.selectedRange, this.selectedName, this.selectedHex);
-    this.selectedBrand = '';
-    this.selectedRange = '';
-    this.selectedName = '';
-    this.selectedHex = '';
+    this.userPaints.push([this.brand, this.range, this.name, this.hex ])
+
+    this.brand = '';
+    this.range = '';
+    this.name = '';
+    this.hex = '';
     this.showNewPaint = false;
 
   }
