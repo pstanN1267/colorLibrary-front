@@ -12,30 +12,26 @@
     </button>
   </div>
 
-  <ng-container class="flex flex-col gap-2" *ngIf="showNewPaint; else noPaints">
+  <div class="flex flex-row gap-4" *ngIf="showNewPaint">
+    <input type="text" placeholder="Brand" [(ngModel)]="brand">
+    <input type="text" placeholder="Paint Range" [(ngModel)]="range">
+    <input type="text" placeholder="Paint Name" [(ngModel)]="name">
+    <input type="text" placeholder="Paint Hex" [(ngModel)]="hex">
+    <button (click)="addPaint()">
+      <ng-icon name="remixAddCircleFill"></ng-icon>
+    </button>
+  </div>
 
-    <div class="flex  gap-4">
-      <input type="text" placeholder="Brand" [(ngModel)]="brand">
-      <input type="text" placeholder="Paint Range" [(ngModel)]="range">
-      <input type="text" placeholder="Paint Name" [(ngModel)]="name">
-      <input type="text" placeholder="Paint Hex" [(ngModel)]="hex">
-      <button (click)="showNewPaint = true; addPaint()"  >
-        <ng-icon name="remixAddCircleFill"></ng-icon>
+  <ng-container class="flex flex-col gap-2" *ngIf="userPaints.length; else noPaints">
+
+
+
+    <div class="flex output-row gap-4 " *ngFor="let paint of userPaints">
+      <div class="white-list-item">{{ paint }}</div>
+      <button>
+        <ng-icon name="remixDeleteBack2Line"></ng-icon>
       </button>
     </div>
-
-<!--    nie działa listowanie-->
-<div *ngFor="let paint of userPaints">
-
- <div>{{paint}}</div>
-
-  <button>
-    <ng-icon name="remixDeleteBack2Line"></ng-icon>
-  </button>
-
-</div>
-
-
   </ng-container>
 
   <ng-template #noPaints>
