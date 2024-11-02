@@ -1,10 +1,20 @@
-import { Component } from '@angular/core';
+import { Component, inject, OnInit } from '@angular/core';
 import { RouterLink } from '@angular/router';
 import { NgIcon } from '@ng-icons/core';
 import { NgForOf, NgIf } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { MatFormField } from '@angular/material/form-field';
 import { MatOptgroup, MatOption, MatSelect } from '@angular/material/select';
+import { ApiService } from '../api.service';
+
+
+
+interface Paint {
+  brand: string;
+  range: string;
+  name: string;
+  // hex: string;
+}
 
 @Component({
   selector: 'app-addpaint',
@@ -23,25 +33,61 @@ import { MatOptgroup, MatOption, MatSelect } from '@angular/material/select';
   templateUrl: './addpaint.component.html',
   styleUrl: './addpaint.component.css',
 })
-export class AddpaintComponent {
+export class AddpaintComponent implements OnInit {
+  private readonly apiService = inject(ApiService);
+
+  ngOnInit() {
+    this.fetchPaint();
+  }
+
   showNewPaint = false;
 
-  brand = '';
-  range = '';
-  name = '';
-  hex = '';
 
-  userPaints: string[][] = [];
+  newPaint: Paint = {
+    brand: '',
+    range: '',
+    name: '',
+    // hex: '',
+  };
 
+  userPaints: Paint[] = [];
 
-  addPaint() {
-    this.userPaints.push([this.brand, this.range, this.name, this.hex ])
+  // addPaint() {
+  //   this.userPaints.push({ ...this.newPaint });
+  //
+  //   this.newPaint.brand = '';
+  //   this.newPaint.range = '';
+  //   this.newPaint.name = '';
+  //   // this.newPaint.hex = '';
+  //
+  //   this.showNewPaint = false;
+  // }
 
-    this.brand = '';
-    this.range = '';
-    this.name = '';
-    this.hex = '';
-    this.showNewPaint = false;
+  addPaint(): void {
+
+    if (!this.newPaint.brand || !this.newPaint.range || !this.newPaint.name) {
+      console.error('Please fill in all fields');
+      return;
+    }
+
+    this.apiService.addPaint(this.newPaint).subscribe(addedPaint => {
+      this.userPaints.push(addedPaint);
+
+      this.newPaint = { brand: '', range: '', name: ''};
+
+      this.showNewPaint = false;
+    });
+  }
+//sprawdzic czy działa
+  deletePaint(id: number) {
+    this.apiService
+      .deleteRow(id)
+      .subscribe(() => this.fetchPaint());
 
   }
+
+  fetchPaint() {
+    this.apiService.getUserPaints().subscribe(paints => {this.userPaints = paints;});
+  }
 }
+

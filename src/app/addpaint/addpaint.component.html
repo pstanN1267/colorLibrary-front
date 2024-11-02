@@ -12,44 +12,80 @@
     </button>
   </div>
 
-  <div class="flex flex-row gap-4" *ngIf="showNewPaint">
-    <input type="text" placeholder="Brand" [(ngModel)]="brand">
-    <input type="text" placeholder="Paint Range" [(ngModel)]="range">
-    <input type="text" placeholder="Paint Name" [(ngModel)]="name">
-    <input type="text" placeholder="Paint Hex" [(ngModel)]="hex">
-    <button (click)="addPaint()">
-      <ng-icon name="remixAddCircleFill"></ng-icon>
-    </button>
-  </div>
+    <div class="flex flex-row gap-4" *ngIf="showNewPaint">
+      <input type="text" placeholder="Brand" [(ngModel)]="newPaint.brand" name="brand" required />
+      <input type="text" placeholder="Paint Range" [(ngModel)]="newPaint.range" name="range" required />
+      <input type="text" placeholder="Paint Name" [(ngModel)]="newPaint.name" name="name" required />
+<!--      <input type="text" placeholder="Paint Hex" [(ngModel)]="newPaint.hex">-->
+      <button type = "submit" (click)="addPaint()">
+        <ng-icon name="remixAddCircleFill"></ng-icon>
+      </button>
+    </div>
 
-  <ng-container class="flex flex-col gap-2" *ngIf="userPaints.length; else noPaints">
+    <ng-container class="flex flex-col gap-2" *ngIf="userPaints.length; else noPaints">
+      <table class="output-table">
+        <tr>
+          <th>Brand</th>
+          <th>Paint Range</th>
+          <th>Paint Name</th>
+          <th></th>
+        </tr>
+        <tr *ngFor="let paint of userPaints">
+          <td>{{ paint.brand }}</td>
+          <td>{{ paint.range }}</td>
+          <td>{{ paint.name }}</td>
+          <td></td>
+<!--          <td [style.backgroundColor]="paint.hex" style="width: 50px; height: 30px;">{{ paint.hex }}</td>-->
+          <!--        <button>-->
+          <!--          <ng-icon name="remixDeleteBack2Line"></ng-icon>-->
+          <!--        </button>-->
+
+<!--          <button (click)="deletePaint(paint.id)" style="margin-left: 10px;">-->
+<!--            <ng-icon name="remixDeleteBack2Line"></ng-icon>&ndash;&gt;-->
+<!--          </button>-->
+        </tr>
+      </table>
+
+    </ng-container>
+
+<!--  <div class="flex flex-row gap-4" *ngIf="showNewPaint">-->
+<!--    <input type="text" placeholder="Brand" [(ngModel)]="brand">-->
+<!--    <input type="text" placeholder="Paint Range" [(ngModel)]="range">-->
+<!--    <input type="text" placeholder="Paint Name" [(ngModel)]="name">-->
+<!--    <input type="text" placeholder="Paint Hex" [(ngModel)]="hex">-->
+<!--    <button (click)="addPaint()">-->
+<!--      <ng-icon name="remixAddCircleFill"></ng-icon>-->
+<!--    </button>-->
+<!--  </div>-->
+
+<!--  <ng-container class="flex flex-col gap-2" *ngIf="userPaints.length; else noPaints">-->
 
 
-    <table class="output-table">
-      <tr>
-        <th>Brand</th>
-        <th>Paint Range</th>
-        <th>Paint Name</th>
-        <th></th>
-      </tr>
-      <tr *ngFor="let paint of userPaints">
-        <td>{{ paint[0] }}</td>
-        <td>{{ paint[1] }}</td>
-        <td>{{ paint[2] }}</td>
-        <td [style.backgroundColor]="paint[3]" style="width: 50px; height: 30px;">{{ paint[3] }}</td>
-<!--        <button>-->
-<!--          <ng-icon name="remixDeleteBack2Line"></ng-icon>-->
-<!--        </button>-->
-      </tr>
-    </table>
+<!--    <table class="output-table">-->
+<!--      <tr>-->
+<!--        <th>Brand</th>-->
+<!--        <th>Paint Range</th>-->
+<!--        <th>Paint Name</th>-->
+<!--        <th></th>-->
+<!--      </tr>-->
+<!--      <tr *ngFor="let paint of userPaints">-->
+<!--        <td>{{ paint[0] }}</td>-->
+<!--        <td>{{ paint[1] }}</td>-->
+<!--        <td>{{ paint[2] }}</td>-->
+<!--        <td [style.backgroundColor]="paint[3]" style="width: 50px; height: 30px;">{{ paint[3] }}</td>-->
+<!--        &lt;!&ndash;        <button>&ndash;&gt;-->
+<!--        &lt;!&ndash;          <ng-icon name="remixDeleteBack2Line"></ng-icon>&ndash;&gt;-->
+<!--        &lt;!&ndash;        </button>&ndash;&gt;-->
+<!--      </tr>-->
+<!--    </table>-->
 
-    <!--<div class="flex output-row gap-4 " *ngFor="let paint of userPaints">-->
-    <!--      <div class="white-list-item">{{ paint }}</div>-->
-    <!--      <button>-->
-    <!--        <ng-icon name="remixDeleteBack2Line"></ng-icon>-->
-    <!--      </button>-->
-    <!--    </div>-->
-  </ng-container>
+<!--    &lt;!&ndash;<div class="flex output-row gap-4 " *ngFor="let paint of userPaints">&ndash;&gt;-->
+<!--    &lt;!&ndash;      <div class="white-list-item">{{ paint }}</div>&ndash;&gt;-->
+<!--    &lt;!&ndash;      <button>&ndash;&gt;-->
+<!--    &lt;!&ndash;        <ng-icon name="remixDeleteBack2Line"></ng-icon>&ndash;&gt;-->
+<!--    &lt;!&ndash;      </button>&ndash;&gt;-->
+<!--    &lt;!&ndash;    </div>&ndash;&gt;-->
+<!--  </ng-container>-->
 
   <ng-template #noPaints>
     <div class="text-center">You have no paints</div>

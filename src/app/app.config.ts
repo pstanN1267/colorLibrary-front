@@ -22,9 +22,11 @@ import {
   hugePaintBrush04,
 } from '@ng-icons/huge-icons';
 import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
+import { provideHttpClient } from '@angular/common/http';
 
 export const appConfig: ApplicationConfig = {
   providers: [
+    provideHttpClient(),
     provideRouter(routes),
     provideNgIconsConfig({ size: '1.5em' }),
     provideIcons({
