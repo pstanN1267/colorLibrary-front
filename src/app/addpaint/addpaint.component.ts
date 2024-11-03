@@ -65,11 +65,6 @@ export class AddpaintComponent implements OnInit {
 
   addPaint(): void {
 
-    if (!this.newPaint.brand || !this.newPaint.range || !this.newPaint.name) {
-      console.error('Please fill in all fields');
-      return;
-    }
-
     this.apiService.addPaint(this.newPaint).subscribe(addedPaint => {
       this.userPaints.push(addedPaint);
 

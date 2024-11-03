@@ -1,7 +1,7 @@
 import { inject, Injectable } from '@angular/core';
 import { HttpClient, HttpParams } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import { Paint } from './models';
+import { Paint, StockPaint } from './models';
 
 const BASE_URL = 'http://localhost:8080'
 
@@ -18,6 +18,9 @@ export class ApiService {
     return this.httpClient.get<Paint[]>(`${BASE_URL}/userpaints`);
   }
 
+  getStockPaints(): Observable<StockPaint[]> {
+    return this.httpClient.get<StockPaint[]>(`${BASE_URL}/stockpaints`);
+  }
 
   addPaint(paint: Paint): Observable<Paint> {
     const params = new HttpParams()

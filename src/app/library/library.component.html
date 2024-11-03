@@ -1,0 +1,41 @@
+<div class="flex flex-col gap-4">
+  <a class="flex items-center gap-2" routerLink="../">
+    <ng-icon name="remixArrowLeftDoubleLine"></ng-icon>
+    Back
+  </a>
+</div>
+
+<div>
+  <h2 class="text-center text-4xl font-bold my-5">Stock Paints</h2>
+  <table class="output-table">
+    <thead>
+    <tr>
+      <th>Brand</th>
+      <th>Range</th>
+      <th>Name</th>
+      <th>Hex Color</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let paint of stockPaints">
+      <td>{{ paint.brand }}</td>
+      <td>{{ paint.range }}</td>
+      <td>{{ paint.name }}</td>
+      <td>
+        <div *ngIf="paint.hex; else noHexInfo" class="color-box" [style.backgroundColor]="paint.hex">
+          <span class="hex-code">{{ paint.hex }}</span>
+        </div>
+        <ng-template #noHexInfo>
+          <span class="no-info">no information</span>
+        </ng-template>
+<!--        <div class="color-box" [style.backgroundColor]="paint.hex">-->
+<!--          <span class="hex-code">{{ paint.hex }}</span>-->
+<!--        </div>-->
+<!--          <span [style.backgroundColor]="paint.hex" style="padding: 5px; border: 1px solid #000;">-->
+<!--            {{ paint.hex }}-->
+<!--          </span>-->
+      </td>
+    </tr>
+    </tbody>
+  </table>
+</div>

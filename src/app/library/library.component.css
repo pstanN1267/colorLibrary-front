@@ -1,0 +1,55 @@
+.output-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 10px;
+  background-color: white;
+}
+
+.output-table th, .output-table td {
+  border: 2px solid rgba(0, 0, 0, 0.41);
+  padding: 8px;
+  text-align: center;
+}
+
+.color-box {
+  width: 50px;
+  height: 20px;
+  position: relative;
+  display: inline-block;
+  border: 1px solid #000;
+  cursor: pointer;
+}
+
+.hex-code {
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: #fff;
+  padding: 2px 5px;
+  border: 1px solid #ddd;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+  white-space: nowrap;
+  font-size: 0.9em;
+}
+
+.color-box:hover .hex-code {
+  display: block;
+}
+
+.color-box:hover .hex-code {
+  display: block;
+}
+
+.no-info {
+  color: #888;
+  font-style: italic;
+}
+
+.header{
+  text-align: center;
+  font-size: 2em;
+  font-weight: bold;
+  margin: 20px 0;
+}
