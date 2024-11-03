@@ -10,3 +10,23 @@
   padding: 8px;
   text-align: center;
 }
+
+.color-box:hover .hex-code {
+  display: block;
+}
+
+.color-box:hover .hex-code {
+  display: block;
+}
+
+.no-info {
+  color: #888;
+  font-style: italic;
+}
+
+.header{
+  text-align: center;
+  font-size: 2em;
+  font-weight: bold;
+  margin: 20px 0;
+}

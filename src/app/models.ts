@@ -4,6 +4,7 @@ export interface Paint {
   brand: string;
   range: string;
   name: string;
+  hex: string;
 }
 
 export interface StockPaint {

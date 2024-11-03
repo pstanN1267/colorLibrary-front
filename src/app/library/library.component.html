@@ -21,19 +21,9 @@
       <td>{{ paint.brand }}</td>
       <td>{{ paint.range }}</td>
       <td>{{ paint.name }}</td>
-      <td>
-        <div *ngIf="paint.hex; else noHexInfo" class="color-box" [style.backgroundColor]="paint.hex">
-          <span class="hex-code">{{ paint.hex }}</span>
-        </div>
-        <ng-template #noHexInfo>
-          <span class="no-info">no information</span>
-        </ng-template>
-<!--        <div class="color-box" [style.backgroundColor]="paint.hex">-->
-<!--          <span class="hex-code">{{ paint.hex }}</span>-->
-<!--        </div>-->
-<!--          <span [style.backgroundColor]="paint.hex" style="padding: 5px; border: 1px solid #000;">-->
-<!--            {{ paint.hex }}-->
-<!--          </span>-->
+      <td class="color-cell" [style.backgroundColor]="paint.hex || '#f0f0f0'"
+          [attr.title]="paint.hex ? 'Hex: ' + paint.hex : 'No information'">
+        <span *ngIf="!paint.hex" class="no-info">no information</span>
       </td>
     </tr>
     </tbody>

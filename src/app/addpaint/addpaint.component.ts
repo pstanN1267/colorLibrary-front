@@ -13,7 +13,7 @@ interface Paint {
   brand: string;
   range: string;
   name: string;
-  // hex: string;
+  hex: string;
 }
 
 @Component({
@@ -47,28 +47,18 @@ export class AddpaintComponent implements OnInit {
     brand: '',
     range: '',
     name: '',
-    // hex: '',
+    hex: '',
   };
 
   userPaints: Paint[] = [];
 
-  // addPaint() {
-  //   this.userPaints.push({ ...this.newPaint });
-  //
-  //   this.newPaint.brand = '';
-  //   this.newPaint.range = '';
-  //   this.newPaint.name = '';
-  //   // this.newPaint.hex = '';
-  //
-  //   this.showNewPaint = false;
-  // }
 
   addPaint(): void {
 
     this.apiService.addPaint(this.newPaint).subscribe(addedPaint => {
       this.userPaints.push(addedPaint);
 
-      this.newPaint = { brand: '', range: '', name: ''};
+      this.newPaint = { brand: '', range: '', name: '', hex: ''};
 
       this.showNewPaint = false;
     });
