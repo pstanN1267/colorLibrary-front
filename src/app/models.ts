@@ -1,6 +1,6 @@
 export interface Paint {
 
-  // id: number;
+  id: number;
   brand: string;
   range: string;
   name: string;

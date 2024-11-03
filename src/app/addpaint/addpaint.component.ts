@@ -6,10 +6,12 @@ import { FormsModule } from '@angular/forms';
 import { MatFormField } from '@angular/material/form-field';
 import { MatOptgroup, MatOption, MatSelect } from '@angular/material/select';
 import { ApiService } from '../api.service';
-
+import { HttpErrorResponse } from '@angular/common/http';
+import { throwError } from 'rxjs';
 
 
 interface Paint {
+  id: number;
   brand: string;
   range: string;
   name: string;
@@ -44,6 +46,7 @@ export class AddpaintComponent implements OnInit {
 
 
   newPaint: Paint = {
+    id: 0,
     brand: '',
     range: '',
     name: '',
@@ -54,16 +57,17 @@ export class AddpaintComponent implements OnInit {
 
 
   addPaint(): void {
-
     this.apiService.addPaint(this.newPaint).subscribe(addedPaint => {
-      this.userPaints.push(addedPaint);
-
-      this.newPaint = { brand: '', range: '', name: '', hex: ''};
+      this.fetchPaint();
+      this.newPaint = { id: 0, brand: '', range: '', name: '', hex: '' };
 
       this.showNewPaint = false;
+
     });
   }
-//sprawdzic czy działa
+
+
+
   deletePaint(id: number) {
     this.apiService
       .deleteRow(id)
@@ -72,7 +76,9 @@ export class AddpaintComponent implements OnInit {
   }
 
   fetchPaint() {
-    this.apiService.getUserPaints().subscribe(paints => {this.userPaints = paints;});
+    this.apiService.getUserPaints().subscribe(paints => {
+      this.userPaints = paints;
+    });
   }
 }
 

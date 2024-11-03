@@ -37,8 +37,15 @@
               [attr.title]="paint.hex ? 'Hex: ' + paint.hex : 'No information'">
             <span *ngIf="!paint.hex" class="no-info">no information</span>
           </td>
+          <td>
+          <button (click)="deletePaint(paint.id)">
+            <ng-icon name="remixDeleteBack2Line"></ng-icon>
+          </button>
+          </td>
         </tr>
       </table>
+
+
 
     </ng-container>
 

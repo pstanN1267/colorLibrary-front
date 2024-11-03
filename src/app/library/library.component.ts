@@ -33,6 +33,8 @@ export class LibraryComponent implements OnInit{
 
   stockPaints: Paint[] = [];
 
+
+
   fetchStockPaints() {
     this.apiService.getStockPaints().subscribe(paints => {this.stockPaints = paints;});
   }

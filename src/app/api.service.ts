@@ -31,6 +31,8 @@ export class ApiService {
     return this.httpClient.post<Paint>(`${BASE_URL}/copy`, null, {params});
   }
 
+
+
   deleteRow(id: number): Observable<any> {
     return this.httpClient.delete(`${BASE_URL}/delete/${id}`);
   }
