@@ -1,12 +1,19 @@
 <div class="flex flex-col gap-4">
-  <a class="flex items-center gap-2" routerLink="../">
-    <ng-icon name="remixArrowLeftDoubleLine"></ng-icon>
-    Back
-  </a>
+  <div class="flex justify-between p-5">
+    <a href="#left" class="flex items-center gap-2" routerLink="../">
+      <ng-icon name="remixArrowLeftDoubleLine"></ng-icon>
+      Home
+    </a>
+    <a href="#right" class="flex items-center gap-2" routerLink="../addpaint">
+      Add Paint
+      <ng-icon name="remixArrowRightDoubleLine"></ng-icon>
+          </a>
+
+  </div>
 </div>
 
 <div>
-  <h2 class="text-center text-4xl font-bold my-5">Stock Paints</h2>
+  <h2 class="text-center text-4xl font-bold my-5">Library</h2>
   <table class="output-table">
     <thead>
     <tr>
@@ -25,7 +32,6 @@
           [attr.title]="paint.hex ? 'Hex: ' + paint.hex : 'No information'">
         <span *ngIf="!paint.hex" class="no-info">no information</span>
       </td>
-      <td></td>
     </tr>
     </tbody>
   </table>

@@ -6,8 +6,6 @@ import { FormsModule } from '@angular/forms';
 import { MatFormField } from '@angular/material/form-field';
 import { MatOptgroup, MatOption, MatSelect } from '@angular/material/select';
 import { ApiService } from '../api.service';
-import { HttpErrorResponse } from '@angular/common/http';
-import { throwError } from 'rxjs';
 
 
 interface Paint {
@@ -54,15 +52,20 @@ export class AddpaintComponent implements OnInit {
   };
 
   userPaints: Paint[] = [];
-
+  errorMessage: string | null = null;
 
   addPaint(): void {
-    this.apiService.addPaint(this.newPaint).subscribe(addedPaint => {
-      this.fetchPaint();
-      this.newPaint = { id: 0, brand: '', range: '', name: '', hex: '' };
-
-      this.showNewPaint = false;
-
+    this.apiService.addPaint(this.newPaint).subscribe({
+      next: (addedPaint) => {
+        this.fetchPaint();
+        this.newPaint = { id: 0, brand: '', range: '', name: '', hex: '' };
+        this.showNewPaint = false;
+        this.errorMessage = null;
+      },
+      error: (error) => {
+        this.errorMessage = 'Failed to add paint. Please try again.';
+        console.error(error);
+      }
     });
   }
 

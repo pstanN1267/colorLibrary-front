@@ -11,9 +11,6 @@
   text-align: center;
 }
 
-
-
-
 .color-box:hover .hex-code {
   display: block;
 }
@@ -27,7 +24,7 @@
   font-style: italic;
 }
 
-.header{
+.header {
   text-align: center;
   font-size: 2em;
   font-weight: bold;

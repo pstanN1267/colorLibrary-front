@@ -14,7 +14,7 @@ import {
   remixPaintLine,
   remixPantoneFill,
   remixPantoneLine,
-  remixDeleteBack2Line,
+  remixDeleteBack2Line, remixArrowRightDoubleLine,
 } from '@ng-icons/remixicon';
 import {
   hugePaintBoard,
@@ -44,6 +44,7 @@ export const appConfig: ApplicationConfig = {
       remixCloseCircleLine,
       remixAddCircleFill,
       remixDeleteBack2Line,
+      remixArrowRightDoubleLine,
     }),
     provideAnimationsAsync(),
   ],
